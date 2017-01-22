@@ -17,11 +17,6 @@
 (defn about-page []
   (layout/render "about.html"))
 
-(defroutes home-routes
-  (GET "/" request (home-page request))
-  (POST "/" request (save-message! request))
-  (GET "/about" [] (about-page)))
-
 (defn validate-message [params]
   (first
    (b/validate
@@ -37,3 +32,8 @@
       (db/save-message!
        (assoc params :timestamp (java.util.Date.)))
       (response/found "/"))))
+
+(defroutes home-routes
+  (GET "/" request (home-page request))
+  (POST "/" request (save-message! request))
+  (GET "/about" [] (about-page)))
