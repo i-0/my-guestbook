@@ -15,3 +15,10 @@
   (GET "/" [] (home-page))
   (GET "/about" [] (about-page)))
 
+(defn validate-message [params]
+  (first
+   (b/validate
+    params
+    :name v/required
+    :message [v/required [v/min-count 10]])))
+
