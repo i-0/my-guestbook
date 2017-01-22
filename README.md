@@ -20,7 +20,3 @@ Then run the following command to bootstrap the DB:
 To start a web server for the application, run:
 
     lein run [-p <port>]
-
-## License
-
-Copyright © 2017 FIXME
