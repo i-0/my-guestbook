@@ -1,18 +1,21 @@
 (ns my-guestbook.routes.home
   (:require [my-guestbook.layout :as layout]
-            [compojure.core :refer [defroutes GET]]
+            [compojure.core :refer [defroutes GET POST]]
             [ring.util.http-response :as response]
             [clojure.java.io :as io]))
 
 (defn home-page []
   (layout/render
-    "home.html" {:docs (-> "docs/docs.md" io/resource slurp)}))
+   "home.html"
+   (merge {:messages (db/get-messages)}
+           (select-keys flash [:name :message :errors]))))
 
 (defn about-page []
   (layout/render "about.html"))
 
 (defroutes home-routes
-  (GET "/" [] (home-page))
+  (GET "/" request (home-page request))
+  (POST "/" request (save-message! request))
   (GET "/about" [] (about-page)))
 
 (defn validate-message [params]
