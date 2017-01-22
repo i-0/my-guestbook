@@ -31,15 +31,24 @@ Then check jar contents:
 
     jar ft <uberjar file>
 
-## Components overview
+## Components overview (without any order)
 - bouncer: validation based on state monad
 - selmer: templating inspired by django
 - compojure: routing
-- XNIO: Java NIO abstraction layer
+- xnio: Java NIO abstraction layer
 - h2: SQL DB
 - jackson: JSON parsing
-- protobuf: binary serialization, what for?
+- protobuf: binary serialization, what for? - hortnetq, see wunderboss
+- wunderboss: immutant + X, not yet clear what it is?
+- immutant: clojure libs for
+  - web: undertow (HTTP server similar to bos-server!)
+  - messaging: hornetq!
+  - quartz: scheduling
+  - infinispan: caching? (check it out)
+  - narayana: transactions? (check it out)
 - ring: HTTP API abstraction
 - migratus: managing DB changes (migrate, rollack)
+- joda time: sane date handling for java
+- servlets: ?
 
 Many more things...
