@@ -22,3 +22,11 @@
     :name v/required
     :message [v/required [v/min-count 10]])))
 
+(defn save-message! [{:keys [params]}]
+  (if-let [errors (validate-message params)]
+    (-> (response/found "/")
+        (assoc :flash (assoc params :errors errors)))
+    (do
+      (db/save-message!
+       (assoc params :timestamp (java.util.Date.)))
+      (response/found "/"))))
