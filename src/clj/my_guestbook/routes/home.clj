@@ -5,6 +5,7 @@
             [clojure.java.io :as io]))
 
 (defn home-page []
+(defn home-page [{:keys [flash]}]
   (layout/render
    "home.html"
    (merge {:messages (db/get-messages)}
