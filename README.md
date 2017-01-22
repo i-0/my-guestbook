@@ -2,7 +2,9 @@
 
 generated using Luminus version "2.9.11.26"
 
-FIXME
+From: http://www.luminusweb.net/docs
+
+100% derivative work to follow sample guestbook app proposed as intro.
 
 ## Prerequisites
 
