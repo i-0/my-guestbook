@@ -2,9 +2,12 @@
   (:require [my-guestbook.layout :as layout]
             [compojure.core :refer [defroutes GET POST]]
             [ring.util.http-response :as response]
-            [clojure.java.io :as io]))
+            [ring.util.response :refer [redirect]
+            [clojure.java.io :as io]
+            [my-guestbook.db.core :as db]
+            [bouncer.core :as b]
+            [bounver.validators :as v]]))
 
-(defn home-page []
 (defn home-page [{:keys [flash]}]
   (layout/render
    "home.html"
