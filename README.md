@@ -20,3 +20,25 @@ Then run the following command to bootstrap the DB:
 To start a web server for the application, run:
 
     lein run [-p <port>]
+
+## Check JVM underpinnings
+
+Generate jar file with all dependencies:
+
+    lein uberjar
+
+Then check jar contents:
+
+    jar ft <uberjar file>
+
+## Components overview
+- bouncer: validation based on state monad
+- selmer: templating inspired by django
+- compojure: routing
+- XNIO: Java NIO abstraction layer
+- h2: SQL DB
+- jackson: JSON parsing
+- protobuf: binary serialization, what for?
+- ring: HTTP API abstraction
+
+Many more things...
