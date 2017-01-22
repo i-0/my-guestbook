@@ -6,7 +6,7 @@
             [ring.util.response :refer [redirect]]
             [clojure.java.io :as io]
             [bouncer.core :as b]
-            [bounver.validators :as v]))
+            [bouncer.validators :as v]))
 
 (defn home-page [{:keys [flash]}]
   (layout/render
