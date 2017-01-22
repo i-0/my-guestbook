@@ -40,5 +40,6 @@ Then check jar contents:
 - jackson: JSON parsing
 - protobuf: binary serialization, what for?
 - ring: HTTP API abstraction
+- migratus: managing DB changes (migrate, rollack)
 
 Many more things...
